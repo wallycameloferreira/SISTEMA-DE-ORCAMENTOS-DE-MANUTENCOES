@@ -1,14 +1,15 @@
 package com.itafrotas.orcamento.repository;
 
-import java.util.List;
-
+import com.itafrotas.orcamento.model.Orcamento;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.itafrotas.orcamento.model.Orcamento;
+import java.util.Optional;
 
 @Repository
 public interface OrcamentoRepository extends JpaRepository<Orcamento, Long> {
-    List<Orcamento> findByClienteContainingIgnoreCase(String cliente);
-    List<Orcamento> findByPlacaCarroContainingIgnoreCase(String placa);
+
+    @Query(value = "SELECT * FROM orcamentos ORDER BY id DESC LIMIT 1", nativeQuery = true)
+    Optional<Orcamento> findUltimoOrcamento();
 }

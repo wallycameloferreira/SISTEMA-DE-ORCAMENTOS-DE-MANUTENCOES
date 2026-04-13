@@ -1,0 +1,12 @@
+com\itafrotas\orcamento\service\OrcamentoService.class
+com\itafrotas\orcamento\controller\OrcamentoController.class
+com\itafrotas\orcamento\repository\ItemRepository.class
+com\itafrotas\orcamento\config\CorsConfig.class
+com\itafrotas\orcamento\model\ItemOrcamento.class
+com\itafrotas\orcamento\service\ItemService.class
+com\itafrotas\orcamento\OrcamentoApiApplication.class
+com\itafrotas\orcamento\controller\ItemController.class
+com\itafrotas\orcamento\repository\OrcamentoRepository.class
+com\itafrotas\orcamento\dto\OrcamentoRequestDTO.class
+com\itafrotas\orcamento\dto\OrcamentoResponseDTO.class
+com\itafrotas\orcamento\model\Orcamento.class

@@ -4,24 +4,97 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2256105e-a214-4354-bc0c-2177dd4d5547" name="Changes" comment="" />
+    <list default="true" id="2256105e-a214-4354-bc0c-2177dd4d5547" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/OrcamentoApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/OrcamentoApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/controller/OrcamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/controller/OrcamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/dto/OrcamentoRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/dto/OrcamentoRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/dto/OrcamentoResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/dto/OrcamentoResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/model/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/model/Orcamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/model/Orcamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/repository/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/repository/OrcamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/repository/OrcamentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/service/OrcamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itafrotas/orcamento/service/OrcamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/OrcamentoApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/OrcamentoApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/config/WebConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/controller/OrcamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/controller/OrcamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoRequestDTO$ItemDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoResponseDTO$ItemDTO$ItemDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoResponseDTO$ItemDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoResponseDTO$OrcamentoResponseDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/dto/OrcamentoResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/model/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/model/Orcamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/model/Orcamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/repository/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/repository/ItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/repository/OrcamentoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/repository/OrcamentoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/service/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/service/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/service/OrcamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itafrotas/orcamento/service/OrcamentoService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadAnnotationsAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="--add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3CJYK8L2qbBt18r7rOQUvEYCR1S" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.OrcamentoApiApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/wally.ferreira/Downloads/Nova pasta/SISTEMA-DE-ORCAMENTOS-DE-MANUTENCOES/Orçamento",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -46,6 +119,18 @@
     </configuration>
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2256105e-a214-4354-bc0c-2177dd4d5547" name="Changes" comment="" />
+      <created>1776105072918</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776105072918</updated>
+      <workItem from="1776105074168" duration="3020000" />
+      <workItem from="1776108115135" duration="2352000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

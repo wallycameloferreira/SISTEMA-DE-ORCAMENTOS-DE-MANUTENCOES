@@ -1,62 +1,68 @@
 package com.itafrotas.orcamento.dto;
 
-import java.math.BigDecimal;
+import com.itafrotas.orcamento.model.ItemOrcamento;
 import java.util.List;
 
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import lombok.Data;
-
-@Data
 public class OrcamentoRequestDTO {
-    
-    @NotBlank(message = "Endereço é obrigatório")
+
+    private Long id;
+    private String empresa;
     private String endereco;
-    
-    @NotBlank(message = "Cliente é obrigatório")
-    private String cliente;
-    
-    @NotBlank(message = "Endereço do cliente é obrigatório")
-    private String clienteEndereco;
-    
-    @NotBlank(message = "Telefone do cliente é obrigatório")
-    @Pattern(regexp = "^\\(\\d{2}\\) \\d{5}-\\d{4}$", 
-             message = "Telefone deve estar no formato (00) 00000-0000")
-    private String clienteTelefone;
-    
-    @Email(message = "Email inválido")
-    private String clienteEmail;
-    
-    @NotBlank(message = "Placa do carro é obrigatória")
-    @Pattern(regexp = "^[A-Z]{3}-\\d[A-Z]\\d{2}$", 
-             message = "Placa deve estar no formato ABC-1D23")
     private String placaCarro;
-    
-    @NotBlank(message = "Modelo do carro é obrigatório")
     private String modeloCarro;
-    
-    @Min(value = 1, message = "Validade mínima é 1 dia")
-    @Max(value = 365, message = "Validade máxima é 365 dias")
-    private Integer validade = 30;
-    
-    private String porcentagemSinistro = "0";
+    private String cliente;
+    private String clienteEndereco;
+    private String clienteTelefone;
+    private String clienteEmail;
+    private Integer validade;
+    private String porcentagemSinistro;
     private String observacoes;
-    private List<ItemDTO> itens;
-    private List<String> fotos;
-    
-    @Data
-    public static class ItemDTO {
-        @NotBlank(message = "Descrição do item é obrigatória")
-        private String descricao;
-        
-        @Min(value = 1, message = "Quantidade mínima é 1")
-        private Integer quantidade;
-        
-        @DecimalMin(value = "0.01", message = "Valor mínimo é R$ 0,01")
-        private BigDecimal valorUnitario;
-    }
+    private String fotos;
+    private List<ItemOrcamento> itens;
+
+    // Construtores
+    public OrcamentoRequestDTO() {}
+
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getEmpresa() { return empresa; }
+    public void setEmpresa(String empresa) { this.empresa = empresa; }
+
+    public String getEndereco() { return endereco; }
+    public void setEndereco(String endereco) { this.endereco = endereco; }
+
+    public String getPlacaCarro() { return placaCarro; }
+    public void setPlacaCarro(String placaCarro) { this.placaCarro = placaCarro; }
+
+    public String getModeloCarro() { return modeloCarro; }
+    public void setModeloCarro(String modeloCarro) { this.modeloCarro = modeloCarro; }
+
+    public String getCliente() { return cliente; }
+    public void setCliente(String cliente) { this.cliente = cliente; }
+
+    public String getClienteEndereco() { return clienteEndereco; }
+    public void setClienteEndereco(String clienteEndereco) { this.clienteEndereco = clienteEndereco; }
+
+    public String getClienteTelefone() { return clienteTelefone; }
+    public void setClienteTelefone(String clienteTelefone) { this.clienteTelefone = clienteTelefone; }
+
+    public String getClienteEmail() { return clienteEmail; }
+    public void setClienteEmail(String clienteEmail) { this.clienteEmail = clienteEmail; }
+
+    public Integer getValidade() { return validade; }
+    public void setValidade(Integer validade) { this.validade = validade; }
+
+    public String getPorcentagemSinistro() { return porcentagemSinistro; }
+    public void setPorcentagemSinistro(String porcentagemSinistro) { this.porcentagemSinistro = porcentagemSinistro; }
+
+    public String getObservacoes() { return observacoes; }
+    public void setObservacoes(String observacoes) { this.observacoes = observacoes; }
+
+    public String getFotos() { return fotos; }
+    public void setFotos(String fotos) { this.fotos = fotos; }
+
+    public List<ItemOrcamento> getItens() { return itens; }
+    public void setItens(List<ItemOrcamento> itens) { this.itens = itens; }
 }

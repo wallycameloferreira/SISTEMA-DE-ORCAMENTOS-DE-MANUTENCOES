@@ -1,82 +1,136 @@
 package com.itafrotas.orcamento.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
 @Table(name = "orcamentos")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Orcamento {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false)
-    private String empresa = "ITA Frotas";
-    
+    private String empresa;
+
+    @Column(nullable = false)
     private String endereco;
-    
+
+    @Column(name = "placa_carro", nullable = false)
+    private String placaCarro;
+
+    @Column(name = "modelo_carro", nullable = false)
+    private String modeloCarro;
+
     @Column(nullable = false)
     private String cliente;
-    
+
+    @Column(name = "cliente_endereco", nullable = false)
     private String clienteEndereco;
+
+    @Column(name = "cliente_telefone", nullable = false)
     private String clienteTelefone;
+
+    @Column(name = "cliente_email")
     private String clienteEmail;
-    
+
     @Column(nullable = false)
-    private String placaCarro;
-    
-    private String modeloCarro;
-    
-    private Integer validade = 30;
-    
-    private String porcentagemSinistro = "0";
-    
-    @Column(length = 2000)
+    private Integer validade;
+
+    @Column(name = "porcentagem_sinistro", nullable = false)
+    private String porcentagemSinistro;
+
+    @Column(columnDefinition = "TEXT")
     private String observacoes;
-    
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "orcamento_id")
-    private List<Item> itens = new ArrayList<>();
-    
-    @ElementCollection
-    @CollectionTable(name = "orcamento_fotos", 
-                     joinColumns = @JoinColumn(name = "orcamento_id"))
-    @Column(name = "foto", length = 5000)
-    private List<String> fotos = new ArrayList<>();
-    
-    private LocalDateTime dataCriacao;
-    private LocalDateTime dataAtualizacao;
-    
-    @PrePersist
-    protected void onCreate() {
-        dataCriacao = LocalDateTime.now();
-        dataAtualizacao = LocalDateTime.now();
+
+    @Column(columnDefinition = "TEXT")
+    private String fotos;
+
+    @Column(name = "ultima_atualizacao")
+    private LocalDateTime ultimaAtualizacao;
+
+    @OneToMany(mappedBy = "orcamento", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JsonManagedReference
+    private List<ItemOrcamento> itens = new ArrayList<>();
+
+    // Construtor Padrão (Obrigatório para o JPA)
+    public Orcamento() {
     }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        dataAtualizacao = LocalDateTime.now();
+
+    // Construtor com Argumentos
+    public Orcamento(String empresa, String endereco, String placaCarro, String modeloCarro,
+                     String cliente, String clienteEndereco, String clienteTelefone,
+                     String clienteEmail, Integer validade, String porcentagemSinistro,
+                     String observacoes, String fotos) {
+        this.empresa = empresa;
+        this.endereco = endereco;
+        this.placaCarro = placaCarro;
+        this.modeloCarro = modeloCarro;
+        this.cliente = cliente;
+        this.clienteEndereco = clienteEndereco;
+        this.clienteTelefone = clienteTelefone;
+        this.clienteEmail = clienteEmail;
+        this.validade = validade;
+        this.porcentagemSinistro = porcentagemSinistro;
+        this.observacoes = observacoes;
+        this.fotos = fotos;
+        this.ultimaAtualizacao = LocalDateTime.now();
+    }
+
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getEmpresa() { return empresa; }
+    public void setEmpresa(String empresa) { this.empresa = empresa; }
+
+    public String getEndereco() { return endereco; }
+    public void setEndereco(String endereco) { this.endereco = endereco; }
+
+    public String getPlacaCarro() { return placaCarro; }
+    public void setPlacaCarro(String placaCarro) { this.placaCarro = placaCarro; }
+
+    public String getModeloCarro() { return modeloCarro; }
+    public void setModeloCarro(String modeloCarro) { this.modeloCarro = modeloCarro; }
+
+    public String getCliente() { return cliente; }
+    public void setCliente(String cliente) { this.cliente = cliente; }
+
+    public String getClienteEndereco() { return clienteEndereco; }
+    public void setClienteEndereco(String clienteEndereco) { this.clienteEndereco = clienteEndereco; }
+
+    public String getClienteTelefone() { return clienteTelefone; }
+    public void setClienteTelefone(String clienteTelefone) { this.clienteTelefone = clienteTelefone; }
+
+    public String getClienteEmail() { return clienteEmail; }
+    public void setClienteEmail(String clienteEmail) { this.clienteEmail = clienteEmail; }
+
+    public Integer getValidade() { return validade; }
+    public void setValidade(Integer validade) { this.validade = validade; }
+
+    public String getPorcentagemSinistro() { return porcentagemSinistro; }
+    public void setPorcentagemSinistro(String porcentagemSinistro) { this.porcentagemSinistro = porcentagemSinistro; }
+
+    public String getObservacoes() { return observacoes; }
+    public void setObservacoes(String observacoes) { this.observacoes = observacoes; }
+
+    public String getFotos() { return fotos; }
+    public void setFotos(String fotos) { this.fotos = fotos; }
+
+    public LocalDateTime getUltimaAtualizacao() { return ultimaAtualizacao; }
+    public void setUltimaAtualizacao(LocalDateTime ultimaAtualizacao) { this.ultimaAtualizacao = ultimaAtualizacao; }
+
+    public List<ItemOrcamento> getItens() { return itens; }
+    public void setItens(List<ItemOrcamento> itens) {
+        this.itens = itens;
+        if (itens != null) {
+            for (ItemOrcamento item : itens) {
+                item.setOrcamento(this);
+            }
+        }
     }
 }

@@ -1,61 +1,52 @@
 package com.itafrotas.orcamento.controller;
 
-import java.util.List;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.itafrotas.orcamento.dto.OrcamentoRequestDTO;
 import com.itafrotas.orcamento.dto.OrcamentoResponseDTO;
 import com.itafrotas.orcamento.service.OrcamentoService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/orcamentos")
 @CrossOrigin(origins = "*")
-@RequiredArgsConstructor
 public class OrcamentoController {
-    
+
     private final OrcamentoService orcamentoService;
-    
+
+    // Injeção via construtor (Boa prática recomendada pelo Spring)
+    public OrcamentoController(OrcamentoService orcamentoService) {
+        this.orcamentoService = orcamentoService;
+    }
+
     @PostMapping
-    public ResponseEntity<OrcamentoResponseDTO> criarOrcamento(
-            @Valid @RequestBody OrcamentoRequestDTO request) {
-        OrcamentoResponseDTO response = orcamentoService.criarOrcamento(request);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    public ResponseEntity<OrcamentoResponseDTO> salvarOrcamento(@RequestBody OrcamentoRequestDTO request) {
+        OrcamentoResponseDTO response = orcamentoService.salvarOrcamento(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    
-    @PutMapping("/{id}")
-    public ResponseEntity<OrcamentoResponseDTO> atualizarOrcamento(
-            @PathVariable Long id,
-            @Valid @RequestBody OrcamentoRequestDTO request) {
-        OrcamentoResponseDTO response = orcamentoService.atualizarOrcamento(id, request);
-        return ResponseEntity.ok(response);
-    }
-    
+
     @GetMapping("/{id}")
-    public ResponseEntity<OrcamentoResponseDTO> buscarOrcamento(@PathVariable Long id) {
-        OrcamentoResponseDTO response = orcamentoService.buscarOrcamento(id);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<OrcamentoResponseDTO> buscarOrcamentoPorId(@PathVariable Long id) {
+        return orcamentoService.buscarOrcamentoPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
-    
+
+    @GetMapping("/ultimo")
+    public ResponseEntity<OrcamentoResponseDTO> buscarUltimoOrcamento() {
+        return orcamentoService.buscarUltimoOrcamento()
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping
-    public ResponseEntity<List<OrcamentoResponseDTO>> listarOrcamentos() {
-        List<OrcamentoResponseDTO> response = orcamentoService.listarOrcamentos();
-        return ResponseEntity.ok(response);
+    public ResponseEntity<List<OrcamentoResponseDTO>> listarTodosOrcamentos() {
+        List<OrcamentoResponseDTO> orcamentos = orcamentoService.listarTodosOrcamentos();
+        return ResponseEntity.ok(orcamentos);
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarOrcamento(@PathVariable Long id) {
         orcamentoService.deletarOrcamento(id);
